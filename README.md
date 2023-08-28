@@ -1,7 +1,65 @@
-# module2-claims
+# NLP Project: Detecting Fraudulent Claims
 
-This is a template repository for the module 2 group assignment for PSTAT197A. The assignment objective is to develop a predictive model for webpage classification based on scraping text content.
+> Python,
 
+<!--
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/pragyy/datascience-readme-template?include_prereleases)
+![GitHub last commit](https://img.shields.io/github/last-commit/pragyy/datascience-readme-template)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/pragyy/datascience-readme-template)
+![GitHub](https://img.shields.io/github/license/pragyy/datascience-readme-template)
+![contributors](https://img.shields.io/github/contributors/pragyy/datascience-readme-template) 
+![codesize](https://img.shields.io/github/languages/code-size/pragyy/datascience-readme-template) 
+-->
+
+<!-- ![img](https://github.com/bche3/AirBnB-Housing-Price-Prediction-Project/blob/main/images/airbnb-thumbnail.PNG) -->
+
+## Project Overview
+
+The project objective is to develop a predictive model for webpage classification based on scraping text content. A collection of unlabeled pages for you to classify has been provided. Once projects are complete we'll evaluate the accuracy of your model using the actual labels.
+
+Preliminary tasks
+
+1.  Augment the HTML scraping strategy so that header information is captured in addition to paragraph content. Are binary class predictions improved using logistic principal component regression?
+
+2.  Perform a secondary tokenization of the data to obtain bigrams. Fit a logistic principal component regression model to the word-tokenized data, and then input the predicted log-odds-ratios together with some number of principal components of the bigram-tokenized data to a *second* logistic regression model. Based on the results, does it seem like the bigrams capture additional information about the claims status of a page?
+
+3.  Build and train a neural network model. Experiment with architectures and training configurations until you find a model that performs at least as well as principal component logistic regression from task 1. Quantify the predictive accuracy.
+
+Primary Task
+
+1.  Develop the best predictive model you can for (a) binary classification and also for (b) the multi-class setting. You can use any preprocessing and any modeling technique you like, including ones not discussed in class (consider exploring RNN or SVM). Export a deployable copy of each model and a set of predictions from each model on the test data `claims-test.RData`. Predictions should be formatted as a single data frame named `pred_df` with columns
+
+    -   `.id` containing the URL ID
+
+    -   `bclass.pred` containing the predicted label for the binary class setting
+
+    -   `mclass.pred` containing the predicted label for the multiclass setting
+
+If this were a technical project, you might be expected to provide a *brief* executive summary of your work and a deployable version of your predictive model that could be easily used by another team or individual. In addition, you might use your model to classify new pages. Deliverables are designed to emulate these project outputs.
+
+-   ***Deliverable 1:*** write a 1-page summary of findings for tasks 1-3; store the rendered document in the `writeups` directory.
+
+-   ***Deliverable 2:*** write a 1-page summary of methods and findings for task 4. This should describe text preprocessing, your predictive models, and estimated prediction accuracy for each model. Store the rendered document in the `writeups` directory.
+
+-   ***Deliverable 3:*** a set of multiclass and binary predictions on the test data, stored as `results/preds-group[N].RData` .
+
+-   ***Deliverable 4:*** deployable copies of your fitted predictive models, stored in the `results` directory, with a short script illustrating their use to generate predictions on the test data, stored in the `scripts` directory.
+
+*Your written summaries should be **very** high-level with a minimum of technical detail. The audience for your writeups is a project mentor or supervisor: assume the reader is familiar with the project and has a working knowledge of the methods you've used. The aim of each summary is to convey the task(s) and result(s) as simply as possible in a linear fashion: task 1, result 1; task 2, result 2; and so on. Note that your results for each task are simply a predictive accuracy (one or a few numbers) and a comment on the accuracy (generally, comparison with another result).*
+
+## Installation and Setup
+- **Technologies:**  R Studio
+- **R Version:** 4.2.2
+- **Packages Used:**
+  - **Data Manipulation:** tidyverse, tidymodels
+  - **Data Visualization:** ggplot2, yardstick, corrplot, rpart.plot
+  - **Machine Learning:** randomForest, xgboost, vip, ranger, kernlab, kknn, baguette
+<!-- - **General Purpose:** General purpose packages like `urllib, os, request`, and many more. -->
+
+
+## Data
+
+### Source Data
 ## Repository content
 
 -   `data` contains several `.RData` files:
@@ -23,86 +81,6 @@ This is a template repository for the module 2 group assignment for PSTAT197A. T
 -   `results` contains example technical outputs: a trained model and a set of predictions
 
 -   `writeups` contains templates for written summaries
-
-## Assignment instructions
-
-Analytical tasks for this assignment fall under two categories:
-
--   The ***preliminary tasks*** extend the in-class analysis in various ways; these are more exploratory in nature.
-
--   The ***primary task*** is to develop a predictive model. This is open-ended but should be informed to some degree by the in-class analysis and the preliminary tasks.
-
-We have provided a collection of unlabeled pages for you to classify. Once projects are complete we'll evaluate the accuracy of your model using the actual labels.
-
-### Preliminary tasks
-
-1.  Augment the HTML scraping strategy so that header information is captured in addition to paragraph content. Are binary class predictions improved using logistic principal component regression?
-
-2.  Perform a secondary tokenization of the data to obtain bigrams. Fit a logistic principal component regression model to the word-tokenized data, and then input the predicted log-odds-ratios together with some number of principal components of the bigram-tokenized data to a *second* logistic regression model. Based on the results, does it seem like the bigrams capture additional information about the claims status of a page?
-
-3.  Build and train a neural network model. Experiment with architectures and training configurations until you find a model that performs at least as well as principal component logistic regression from task 1. Quantify the predictive accuracy.
-
-### Primary task
-
-1.  Develop the best predictive model you can for (a) binary classification and also for (b) the multi-class setting. You can use any preprocessing and any modeling technique you like, including ones not discussed in class (consider exploring RNN or SVM). Export a deployable copy of each model and a set of predictions from each model on the test data `claims-test.RData`. Predictions should be formatted as a single data frame named `pred_df` with columns
-
-    -   `.id` containing the URL ID
-
-    -   `bclass.pred` containing the predicted label for the binary class setting
-
-    -   `mclass.pred` containing the predicted label for the multiclass setting
-
-### Deliverables
-
-If this were a technical project, you might be expected to provide a *brief* executive summary of your work and a deployable version of your predictive model that could be easily used by another team or individual. In addition, you might use your model to classify new pages. Deliverables are designed to emulate these project outputs.
-
--   ***Deliverable 1:*** write a 1-page summary of findings for tasks 1-3; store the rendered document in the `writeups` directory.
-
--   ***Deliverable 2:*** write a 1-page summary of methods and findings for task 4. This should describe text preprocessing, your predictive models, and estimated prediction accuracy for each model. Store the rendered document in the `writeups` directory.
-
--   ***Deliverable 3:*** a set of multiclass and binary predictions on the test data, stored as `results/preds-group[N].RData` .
-
--   ***Deliverable 4:*** deployable copies of your fitted predictive models, stored in the `results` directory, with a short script illustrating their use to generate predictions on the test data, stored in the `scripts` directory.
-
-*Your written summaries should be **very** high-level with a minimum of technical detail. The audience for your writeups is a project mentor or supervisor: assume the reader is familiar with the project and has a working knowledge of the methods you've used. The aim of each summary is to convey the task(s) and result(s) as simply as possible in a linear fashion: task 1, result 1; task 2, result 2; and so on. Note that your results for each task are simply a predictive accuracy (one or a few numbers) and a comment on the accuracy (generally, comparison with another result).*
-
-# NLP Project: Detecting Fraudulent Claims
-
-> Python,
-
-<!--
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/pragyy/datascience-readme-template?include_prereleases)
-![GitHub last commit](https://img.shields.io/github/last-commit/pragyy/datascience-readme-template)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/pragyy/datascience-readme-template)
-![GitHub](https://img.shields.io/github/license/pragyy/datascience-readme-template)
-![contributors](https://img.shields.io/github/contributors/pragyy/datascience-readme-template) 
-![codesize](https://img.shields.io/github/languages/code-size/pragyy/datascience-readme-template) 
--->
-
-![img](https://github.com/bche3/AirBnB-Housing-Price-Prediction-Project/blob/main/images/airbnb-thumbnail.PNG)
-
-## Project Overview
-
-Predicted housing prices on Airbnb Los Angeles houses dataset by training and benchmarking machine learning models including Random Forest, K-Nearest Neighbors (KNN) in R (random forest, xgboost, knn). I performed log-transformation, stratified cross validation, and hyperparameter tuning on models; yielded 63% R-squared and 54% RMSE on best performing model using Bagging
-
-## Installation and Setup
-- **Technologies:**  R Studio
-- **R Version:** 4.2.2
-- **Packages Used:**
-  - **Data Manipulation:** tidyverse, tidymodels
-  - **Data Visualization:** ggplot2, yardstick, corrplot, rpart.plot
-  - **Machine Learning:** randomForest, xgboost, vip, ranger, kernlab, kknn, baguette
-<!-- - **General Purpose:** General purpose packages like `urllib, os, request`, and many more. -->
-
-
-## Data
-
-### Source Data
-- http://insideairbnb.com/get-the-data/
-  - Inside Airbnb is a mission driven project that provides data and advocacy about Airbnb's impact on residential communities. We work towards a vision where data and information empower communities to understand, decide and control the role of renting residential homes to tourists.
-- http://data.insideairbnb.com/united-states/ca/los-angeles/2022-09-09/visualisations/listings.csv
-  - Summary information and metrics for listings in Los Angeles (good for visualisations).	 
-
 ### Data Acquisition
 - 
 
